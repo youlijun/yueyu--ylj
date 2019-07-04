@@ -37,7 +37,7 @@ plt.xlabel("x")
 plt.title("random.randint")
 plt.show()
 ```
-![直方图](D:/work/note/直方图.png)
+![直方图](./直方图.png)
 
 ### 1.2、饼图
 
