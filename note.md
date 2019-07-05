@@ -24,7 +24,7 @@ rate = (len(y) - list(y).count(0))/len(y)
 rate1 = (len(y1) - list(y1).count(0))/len(y1)
 rate2 = (len(y2) - list(y2).count(0))/len(y2)
 
-# plt.bar(x, y[, color='', label='', width=1]) width为1时，数据之间没有空隙
+# plt.bar(x, y, color='', label='', width=1]) width为1时，数据之间没有空隙
 plt.bar(x, y, color='yellow', label="x   rate:{0:.2f}".format(rate),width=1)
 plt.bar(x1, y1, color="red",label="x1 rate:{0:.2f}".format(rate1), width=1)
 plt.bar(x2, y2, color="green", label='x2 rate:{0:.2f}'.format(rate2), width=1)
@@ -37,7 +37,7 @@ plt.xlabel("x")
 plt.title("random.randint")
 plt.show()
 ```
-![直方图](./直方图.png)
+![1.1.0](./Images/Strips/1.1.0.png)
 
 ### 1.2、饼图
 
@@ -57,12 +57,18 @@ def pie(
         frame=frame, rotatelabels=rotatelabels, **({"data": data} if
         data is not None else {}))
 ```
-|参数|意义|
-|-|-|
-|x|类似于**一 维** 数组
-|explode|默认：None 应与x的size相等，就是每个模块与中心的距离
-|
-
+|参数|意义|举例/结果|
+|:-:|:-:|:-:|
+|x|类似于**一 维** 数组|![1.2.0](./Images/Pies/1.2.0.png)|
+|explode=_None_|就是每个模块与中心的距离。如果指定，就要**每个模块**都指定|explode_[2] = 0.1![1.2.1](./Images/Pies/1.2.1.png)
+|autopct=_None_|显示百分比的格式|ausopct="%.1%%"![1.2.2](./Images/Pies/1.2.2.png)
+labels=_None_|显示标签的内容，强行当作一维List_like|![1.2.3](./Images/Pies/1.2.3.png)
+colors=_None_|**列表**传参:支持16进制，单字母，英文代码，(0\~1,0\~1,0\~1)|colors=["DarkMagenta",'y','#ee0000',(0.1,0.5,0.3)]![1.2.4](./Images/Pies/1.2.4.png)
+startangle=_None_|逆时针旋转角度，以第一个块的右边半径为坐标轴，旋转|startangle=90![1.2.5](./Images/Pies/1.2.5.png)
+radius=_None_|radius默认为1|radius=1.5![1.2.6](./Images/Pies/1.2.6.png)
+wedegrops=_None_|
+textprops=_None_|
+data=_None_|
 
 ## 2、格式化输出
 
