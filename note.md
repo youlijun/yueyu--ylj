@@ -1,3 +1,5 @@
+&emsp;&emsp;
+
 # __笔记__
 
 [TOC]
@@ -6,7 +8,9 @@
 
 ### 1.1、直方图绘制
 
-```
+```python
+#!/usr/bin/python3
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -37,11 +41,13 @@ plt.xlabel("x")
 plt.title("random.randint")
 plt.show()
 ```
-![1.1.0](./Images/Strips/1.1.0.png)
+![Pic-1.1.0](./Images/Strips/1.1.0.png)
 
 ### 1.2、饼图
 
-```
+```python
+#!/usr/bin/python3
+
 def pie(
         x, explode=None, labels=None, colors=None, autopct=None,
         pctdistance=0.6, shadow=False, labeldistance=1.1,
@@ -57,15 +63,16 @@ def pie(
         frame=frame, rotatelabels=rotatelabels, **({"data": data} if
         data is not None else {}))
 ```
+
 |参数|意义|举例/结果|
 |:-:|:-:|:-:|
-|x|类似于**一 维** 数组|![1.2.0](./Images/Pies/1.2.0.png)|
-|explode=_None_|就是每个模块与中心的距离。如果指定，就要**每个模块**都指定|explode_[2] = 0.1![1.2.1](./Images/Pies/1.2.1.png)
-|autopct=_None_|显示百分比的格式|ausopct="%.1%%"![1.2.2](./Images/Pies/1.2.2.png)
-labels=_None_|显示标签的内容，强行当作一维List_like|![1.2.3](./Images/Pies/1.2.3.png)
-colors=_None_|**列表**传参:支持16进制，单字母，英文代码，(0\~1,0\~1,0\~1)|colors=["DarkMagenta",'y','#ee0000',(0.1,0.5,0.3)]![1.2.4](./Images/Pies/1.2.4.png)
-startangle=_None_|逆时针旋转角度，以第一个块的右边半径为坐标轴，旋转|startangle=90![1.2.5](./Images/Pies/1.2.5.png)
-radius=_None_|radius默认为1|radius=1.5![1.2.6](./Images/Pies/1.2.6.png)
+|x|类似于**一 维** 数组|![Pic-1.2.0](./Images/Pies/1.2.0.png)|
+|explode=_None_|就是每个模块与中心的距离。如果指定，就要**每个模块**都指定|explode_[2] = 0.1![Pic-1.2.1](./Images/Pies/1.2.1.png)
+|autopct=_None_|显示百分比的格式|ausopct="%.1%%"![Pic-1.2.2](./Images/Pies/1.2.2.png)
+labels=_None_|显示标签的内容，强行当作一维List_like|![Pic-1.2.3](./Images/Pies/1.2.3.png)
+colors=_None_|**列表**传参:支持16进制，单字母，英文代码，(0\~1,0\~1,0\~1),__周末有时间写随机颜色脚本__|colors=["DarkMagenta",'y','#ee0000',(0.1,0.5,0.3)]![Pic-1.2.4](./Images/Pies/1.2.4.png)
+startangle=_None_|逆时针旋转角度，以第一个块的右边半径为坐标轴，旋转|startangle=90![Pic-1.2.5](./Images/Pies/1.2.5.png)
+radius=_None_|radius默认为1|radius=1.5![Pic-1.2.6](./Images/Pies/1.2.6.png)
 wedegrops=_None_|
 textprops=_None_|
 data=_None_|
@@ -108,3 +115,21 @@ data=_None_|
 |ord(x )|将一个字符转换为它的整数值
 |hex(x )|将一个整数转换为一个十六进制字符串
 |oct(x )|将一个整数转换为一个八进制字符串
+
+## 4、linux——awk命令
+
+```bash
+#!/usr/bin/bash
+
+awk '{pattern + action}' {filenames}
+```
+## 5、pandas
+
+```python
+#!/usr/bin/python3
+
+import pandas as pd
+f = pd.read_csv("file_neme"[,sep="",header=""])
+# 选取f中第0列包含list_like中的数据的行
+f[f[0].siin(list_like)]
+```
