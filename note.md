@@ -6,9 +6,16 @@
 
 ## 1、Python Matplotlib
 
+```python
+#!/usr/bin/python3
+
+
+```
+
 ### 1.1、直方图绘制
 
 ```python
+
 #!/usr/bin/python3
 
 import numpy as np
@@ -73,9 +80,10 @@ labels=_None_|显示标签的内容，强行当作一维List_like|![Pic-1.2.3](.
 colors=_None_|**列表**传参:支持16进制，单字母，英文代码，(0\~1,0\~1,0\~1),__周末有时间写随机颜色脚本__|colors=["DarkMagenta",'y','#ee0000',(0.1,0.5,0.3)]![Pic-1.2.4](./Images/Pies/1.2.4.png)
 startangle=_None_|逆时针旋转角度，以第一个块的右边半径为坐标轴，旋转|startangle=90![Pic-1.2.5](./Images/Pies/1.2.5.png)
 radius=_None_|radius默认为1|radius=1.5![Pic-1.2.6](./Images/Pies/1.2.6.png)
-wedegrops=_None_|
-textprops=_None_|
-data=_None_|
+wedegrops=_None_|略|
+textprops=_None_|略|
+data=_None_|设置了其他参数，这个就不要设置，其中的参数会替代之前设置好的参数|
+
 
 ## 2、格式化输出
 
@@ -121,8 +129,28 @@ data=_None_|
 ```bash
 #!/usr/bin/bash
 
+花括号两边必须是单引号
+# 基操
 awk '{pattern + action}' {filenames}
+
+# 分隔符可以是列表
+awk -F"分隔符" '{pattern + action}' {filenames}
+awk -F"["\t",':']" '{pattern + action}' {filenames}
+
+# 选择第20-30行
+# if的条件必须加括号
+awk '{if(NR>=20 && NR<=30) print $1}' {filenames}
+
+# BEGIN
+awk '{count++;print $0;} END{print "user count is ",count}' {filename}
+# END
+awk 'BEGIN {count=0;print "[start] user count is ",count} {count=count+1;print $0} END{print "[end] user count is ",count}' {filename} 
+
+# awk '布尔表达式{action}' file 仅当对前面的布尔表达式求值为真时， awk 才执行代码块。
+awk -F: '$1=="root"{print $0}' passwd
+awk -F: '($1=="root")&&($5=="root") {print $0}' passwd
 ```
+
 ## 5、pandas
 
 ```python
