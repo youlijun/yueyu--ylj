@@ -171,6 +171,8 @@ df[df[0].isin(list_like)]
 # 选取f中第0列不包含list_)like中数据的行
 # ~  表示反选
 reault = df[~df[0].isin(list_like)]
+
+# 保存
 result.to_csv(output_file, sep="", header=True, index=True)
 
 # 组合筛选时，每个条件都要添加括号
@@ -235,6 +237,11 @@ df.drop_duplicates(subset,keep)
 # 缺省subset——根据所有的列进行去重
 # 缺省keep——保留第一个值   False——不保留所有重复值, last——保留最后一个, first——保留第一个
 df.drop_duplicates(subset=[列名称1, 列名称2 ],keep)
+
+# -----------------------------------------------------------------------------------
+# 排序
+
+df.sort_value(by=[], axsi=0, ascending=[],inplace=False,na_position='last')
 
 # -----------------------------------------------------------------------------------
 # 
