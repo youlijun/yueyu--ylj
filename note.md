@@ -153,6 +153,7 @@ awk -F: '($1=="root")&&($5=="root") {print $0}' {filename}
 
 ## 5、pandas
 
+### 5.1.1 读取数据
 ```python
 #!/usr/bin/python3
 
@@ -161,9 +162,17 @@ import pandas as pd
 # header默认第一行
 df = pd.read_csv("file_neme" [,sep="", header=True])
 
+```
 
-# -----------------------------------------------------------------------------------
-# 筛选
+### 5.1.2 保存
+```python
+#!/usr/bin/python3
+result.to_csv(output_file, sep="", header=True, index=True)
+```
+
+### 5.2 筛选
+```python
+#!/usr/bin/python3
 
 # 选取f中第0列包含list_like中的数据的行
 df[df[0].isin(list_like)]
@@ -172,14 +181,21 @@ df[df[0].isin(list_like)]
 # ~  表示反选
 reault = df[~df[0].isin(list_like)]
 
-# 保存
-result.to_csv(output_file, sep="", header=True, index=True)
+# 模糊筛选　（包含什么）
+
+## 单条件
+df.loc[df[0].str.contains("GendId")]
+## 多条件 不能用　＇＆＇只能用｜
+df.loc[df[0].str.conrains("GenId|GenLenth")]
+
 
 # 组合筛选时，每个条件都要添加括号
 df2 = df[(df[3]>95) & (df[3]<96)]
+```
 
-# -----------------------------------------------------------------------------------
-# 访问数据
+### 5.3 访问数据
+```python
+#!/usr/bin/python3
 
 # 因为人为规定的索引值可能会有重复，而索引位置不会重复
 
@@ -188,23 +204,32 @@ df.loc[行索引名称或条件，列索引名称]
 
 df.iloc[int]# iloc只接受int，它表示第几行，从0开始
 df.iloc[行索引位置，列索引位置]
+```
 
-# -----------------------------------------------------------------------------------
-# 更改数值
+### 5.4 更改数值
+```python
+#!/usr/bin/python3
+
 df.loc[0] = [..,  ..., ..., ... ]# 在原来的基础上改变值
 
 df.loc[行值，列值] # 精准定位到某个数据进行更改
 df.iloc['index_seq','column']# 同上
 
-# 重命名索引值、列名
+## 重命名索引值、列名
 
 frame9.rename(index,columns,inplace=False) # 默认不替换原数据
 
 frame9.rename(index={1:'first'},columns={'item':'object'},inplace=True)
 
+##　寻找替换
+#＃ 然后需要再赋值给原来的表的列名才行
+df["列名"].str.replace("","")
 
-# -----------------------------------------------------------------------------------
-# 添加数据
+```
+
+### 5.5 添加数据
+```python
+#!/usr/bin/python3
 
 df.insert(第几列, "新列名", [数据]) # 在第几列添加新的列，列名是什么，数据
 # 按列添加
@@ -228,8 +253,13 @@ df.append(temp, ignore_index=True)
 # 在某一行添加数据暂时不考虑，因为如果在不同位置添加多个数据，名称和索引位置会改变,比较麻烦
 # 大多数思想都是拆表添加再合并
 
-# -----------------------------------------------------------------------------------
-#  重复值处理
+```
+
+### 5.6 重复值处理
+
+```python
+#!/usr/bin/python3
+
 #  会对每个数据计数，重复返回True，否则返回False
 df.drop_duplicates(subset,keep)
 
@@ -237,14 +267,19 @@ df.drop_duplicates(subset,keep)
 # 缺省subset——根据所有的列进行去重
 # 缺省keep——保留第一个值   False——不保留所有重复值, last——保留最后一个, first——保留第一个
 df.drop_duplicates(subset=[列名称1, 列名称2 ],keep)
+```
 
-# -----------------------------------------------------------------------------------
-# 排序
+### 5.7 排序
+
+```python
+#!/usr/bin/python3
 
 df.sort_value(by=[], axsi=0, ascending=[],inplace=False,na_position='last')
 
-# -----------------------------------------------------------------------------------
-# 
+# 根据低１，２，column_name3排序，
+# 分别是升序，降序，升序,
+# 并且直接作用于原来的数据表
+df.sort_value(by=[1,2,column_name3,...], ascending=[True,False,True], inplace=True)
 ```
 
 ## 6、匿名函数
@@ -281,11 +316,17 @@ map( lambda x,y: True_value if condition else False_value, iterable_1,iterable_2
 
 每条reads只占用4行
 
-第一行就是sequence header
+第一行就是Sequence Identity
 第二行是测序得到的碱基
 第三行是单独的 **+**
 第四行是碱基质量
 
+Sequence Identity
+```
+@<Instrument>:<Run Number>:<Flowcell ID>:<Lane>:<Title>:<x-pox>:<y-pos>:<Read>:<Is filtered>:<Control number>:<Index sequence>
+```
+
+格式如下：
 ![Fastq](./Images/File_type/Fastq.png)
 
 ### 7.2、 .fasta
@@ -294,3 +335,15 @@ map( lambda x,y: True_value if condition else False_value, iterable_1,iterable_2
 
 第一行 以 **>** 开头，接着是sequence header(uniqueness)
 下一行 是碱基序列
+
+格式：
+&emsp;&emsp;省略
+
+
+## 8．Shell
+
+```shell
+# 递归复制多个目录的相同文件
+cp -r /share/data7/zhangy2/projects/2019-07-19/３.anno/*/*/*.sort.depth.log  ./
+```
+
