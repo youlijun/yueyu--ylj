@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Administrator\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:////home/zy/.vscode-insiders/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
       
       
 
@@ -278,7 +278,18 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA">2&#x3001;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</a></li>
 <li><a href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96">3&#x3001;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x8F6C;&#x5316;</a></li>
 <li><a href="#4-linuxawk%E5%91%BD%E4%BB%A4">4&#x3001;linux&#x2014;&#x2014;awk&#x547D;&#x4EE4;</a></li>
-<li><a href="#5-pandas">5&#x3001;pandas</a></li>
+<li><a href="#5-pandas">5&#x3001;pandas</a>
+<ul>
+<li><a href="#511-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">5.1.1 &#x8BFB;&#x53D6;&#x6570;&#x636E;</a></li>
+<li><a href="#512-%E4%BF%9D%E5%AD%98">5.1.2 &#x4FDD;&#x5B58;</a></li>
+<li><a href="#52-%E7%AD%9B%E9%80%89">5.2 &#x7B5B;&#x9009;</a></li>
+<li><a href="#53-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE">5.3 &#x8BBF;&#x95EE;&#x6570;&#x636E;</a></li>
+<li><a href="#54-%E6%9B%B4%E6%94%B9%E6%95%B0%E5%80%BC">5.4 &#x66F4;&#x6539;&#x6570;&#x503C;</a></li>
+<li><a href="#55-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE">5.5 &#x6DFB;&#x52A0;&#x6570;&#x636E;</a></li>
+<li><a href="#56-%E9%87%8D%E5%A4%8D%E5%80%BC%E5%A4%84%E7%90%86">5.6 &#x91CD;&#x590D;&#x503C;&#x5904;&#x7406;</a></li>
+<li><a href="#57-%E6%8E%92%E5%BA%8F">5.7 &#x6392;&#x5E8F;</a></li>
+</ul>
+</li>
 <li><a href="#6-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0">6&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;</a></li>
 <li><a href="#7-%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F">7&#x3001; &#x751F;&#x7269;&#x4FE1;&#x606F;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;</a>
 <ul>
@@ -596,32 +607,117 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <span class="token function">awk</span> -F: <span class="token string">&apos;(<span class="token variable">$1</span>==&quot;root&quot;)&amp;&amp;(<span class="token variable">$5</span>==&quot;root&quot;) {print <span class="token variable">$0</span>}&apos;</span> <span class="token punctuation">{</span>filename<span class="token punctuation">}</span>
 </pre><h2 class="mume-header" id="5-pandas">5&#x3001;pandas</h2>
 
+<h3 class="mume-header" id="511-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">5.1.1 &#x8BFB;&#x53D6;&#x6570;&#x636E;</h3>
+
 <pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
 
 <span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 
 <span class="token comment"># header&#x9ED8;&#x8BA4;&#x7B2C;&#x4E00;&#x884C;</span>
-f <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">&quot;file_neme&quot;</span><span class="token punctuation">[</span><span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">&quot;file_neme&quot;</span> <span class="token punctuation">[</span><span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
+</pre><h3 class="mume-header" id="512-%E4%BF%9D%E5%AD%98">5.1.2 &#x4FDD;&#x5B58;</h3>
 
-<span class="token comment">### &#x7B5B;&#x9009;</span>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+result<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</pre><h3 class="mume-header" id="52-%E7%AD%9B%E9%80%89">5.2 &#x7B5B;&#x9009;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
 
 <span class="token comment"># &#x9009;&#x53D6;f&#x4E2D;&#x7B2C;0&#x5217;&#x5305;&#x542B;list_like&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7684;&#x884C;</span>
-f<span class="token punctuation">[</span>f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span>list_like<span class="token punctuation">)</span><span class="token punctuation">]</span>
+df<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span>list_like<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
 <span class="token comment"># &#x9009;&#x53D6;f&#x4E2D;&#x7B2C;0&#x5217;&#x4E0D;&#x5305;&#x542B;list_)like&#x4E2D;&#x6570;&#x636E;&#x7684;&#x884C;</span>
-reault <span class="token operator">=</span> f<span class="token punctuation">[</span><span class="token operator">~</span>f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span>list_like<span class="token punctuation">)</span><span class="token punctuation">]</span>
-result<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span>output_file<span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># ~  &#x8868;&#x793A;&#x53CD;&#x9009;</span>
+reault <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token operator">~</span>df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span>list_like<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-<span class="token comment"># &#x6839;&#x636E;&#x7D22;&#x5F15;/&#x884C;&#x53F7;&#x8BBF;&#x95EE;</span>
-f<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token string">&apos;&#x7D22;&#x5F15;&apos;</span><span class="token punctuation">]</span><span class="token comment"># &#x5C31;&#x662F;index&#xFF0C;&#x6309;&#x7167;index&#x7684;&#x503C;&#x6765;&#x8BBF;&#x95EE;.&#x5B83;&#x7684;&#x7C7B;&#x578B;&#x6839;&#x636E;index&#x7684;&#x7C7B;&#x578B;&#x6539;&#x53D8;</span>
-f<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token comment"># iloc&#x53EA;&#x63A5;&#x53D7;int&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x7B2C;&#x51E0;&#x884C;&#xFF0C;&#x4ECE;0&#x5F00;&#x59CB;</span>
-f<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span><span class="token comment"># &#x5728;&#x539F;&#x6765;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x6539;&#x53D8;&#x503C;</span>
+<span class="token comment"># &#x6A21;&#x7CCA;&#x7B5B;&#x9009;&#x3000;&#xFF08;&#x5305;&#x542B;&#x4EC0;&#x4E48;&#xFF09;</span>
 
-f<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>&#x884C;&#x503C;&#xFF0C;&#x5217;&#x503C;<span class="token punctuation">]</span> <span class="token comment"># &#x7CBE;&#x51C6;&#x5B9A;&#x4F4D;&#x5230;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x66F4;&#x6539;</span>
-f<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token string">&apos;index&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;column&apos;</span><span class="token punctuation">]</span><span class="token comment"># &#x540C;&#x4E0A;</span>
+<span class="token comment">## &#x5355;&#x6761;&#x4EF6;</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">&quot;GendId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment">## &#x591A;&#x6761;&#x4EF6; &#x4E0D;&#x80FD;&#x7528;&#x3000;&#xFF07;&#xFF06;&#xFF07;&#x53EA;&#x80FD;&#x7528;&#xFF5C;</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>conrains<span class="token punctuation">(</span><span class="token string">&quot;GenId|GenLenth&quot;</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-f<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>&#x7B2C;&#x51E0;&#x884C;<span class="token punctuation">,</span> <span class="token string">&quot;&#x65B0;&#x5217;&#x540D;&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>&#x6570;&#x636E;<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># &#x5728;&#x7B2C;&#x51E0;&#x5217;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5217;&#xFF0C;&#x5217;&#x540D;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x6570;&#x636E;</span>
+
+<span class="token comment"># &#x7EC4;&#x5408;&#x7B5B;&#x9009;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;&#x6761;&#x4EF6;&#x90FD;&#x8981;&#x6DFB;&#x52A0;&#x62EC;&#x53F7;</span>
+df2 <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">95</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">96</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+</pre><h3 class="mume-header" id="53-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE">5.3 &#x8BBF;&#x95EE;&#x6570;&#x636E;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+
+<span class="token comment"># &#x56E0;&#x4E3A;&#x4EBA;&#x4E3A;&#x89C4;&#x5B9A;&#x7684;&#x7D22;&#x5F15;&#x503C;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x91CD;&#x590D;&#xFF0C;&#x800C;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;</span>
+
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token string">&apos;&#x7D22;&#x5F15;&apos;</span><span class="token punctuation">]</span><span class="token comment"># &#x5C31;&#x662F;index&#xFF0C;&#x6309;&#x7167;index&#x7684;&#x503C;&#x6765;&#x8BBF;&#x95EE;.&#x5B83;&#x7684;&#x7C7B;&#x578B;&#x6839;&#x636E;index&#x7684;&#x7C7B;&#x578B;&#x6539;&#x53D8;</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>&#x884C;&#x7D22;&#x5F15;&#x540D;&#x79F0;&#x6216;&#x6761;&#x4EF6;&#xFF0C;&#x5217;&#x7D22;&#x5F15;&#x540D;&#x79F0;<span class="token punctuation">]</span>
+
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token comment"># iloc&#x53EA;&#x63A5;&#x53D7;int&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x7B2C;&#x51E0;&#x884C;&#xFF0C;&#x4ECE;0&#x5F00;&#x59CB;</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>&#x884C;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF0C;&#x5217;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;<span class="token punctuation">]</span>
+</pre><h3 class="mume-header" id="54-%E6%9B%B4%E6%94%B9%E6%95%B0%E5%80%BC">5.4 &#x66F4;&#x6539;&#x6570;&#x503C;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span><span class="token comment"># &#x5728;&#x539F;&#x6765;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x6539;&#x53D8;&#x503C;</span>
+
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>&#x884C;&#x503C;&#xFF0C;&#x5217;&#x503C;<span class="token punctuation">]</span> <span class="token comment"># &#x7CBE;&#x51C6;&#x5B9A;&#x4F4D;&#x5230;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x66F4;&#x6539;</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token string">&apos;index_seq&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;column&apos;</span><span class="token punctuation">]</span><span class="token comment"># &#x540C;&#x4E0A;</span>
+
+<span class="token comment">## &#x91CD;&#x547D;&#x540D;&#x7D22;&#x5F15;&#x503C;&#x3001;&#x5217;&#x540D;</span>
+
+frame9<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>index<span class="token punctuation">,</span>columns<span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment"># &#x9ED8;&#x8BA4;&#x4E0D;&#x66FF;&#x6362;&#x539F;&#x6570;&#x636E;</span>
+
+frame9<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>index<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string">&apos;first&apos;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&apos;item&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;object&apos;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment">##&#x3000;&#x5BFB;&#x627E;&#x66FF;&#x6362;</span>
+<span class="token comment">#&#xFF03; &#x7136;&#x540E;&#x9700;&#x8981;&#x518D;&#x8D4B;&#x503C;&#x7ED9;&#x539F;&#x6765;&#x7684;&#x8868;&#x7684;&#x5217;&#x540D;&#x624D;&#x884C;</span>
+df<span class="token punctuation">[</span><span class="token string">&quot;&#x5217;&#x540D;&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+
+</pre><h3 class="mume-header" id="55-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE">5.5 &#x6DFB;&#x52A0;&#x6570;&#x636E;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+
+df<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>&#x7B2C;&#x51E0;&#x5217;<span class="token punctuation">,</span> <span class="token string">&quot;&#x65B0;&#x5217;&#x540D;&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>&#x6570;&#x636E;<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># &#x5728;&#x7B2C;&#x51E0;&#x5217;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5217;&#xFF0C;&#x5217;&#x540D;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x6570;&#x636E;</span>
+<span class="token comment"># &#x6309;&#x5217;&#x6DFB;&#x52A0;</span>
+
+col_name <span class="token operator">=</span> df<span class="token punctuation">.</span>columns<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># &#x8BFB;&#x53D6;df&#x5217;&#x540D;&#x4E3A; list</span>
+col_name<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">)</span> <span class="token comment"># &#x5C31;&#x662F;&#x5BF9;&#x5217;&#x8868;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</span>
+
+df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>columns<span class="token operator">=</span>col_name<span class="token punctuation">)</span><span class="token comment"># &#x7136;&#x540E;&#x6839;&#x636E;&#x5217;&#x540D;&#xFF0C;&#x91CD;&#x65B0;&#x6392;&#x5E8F;df</span>
+
+<span class="token comment"># &#x5229;&#x7528; list.index&#x7684;&#x65B9;&#x6CD5; &#xFF0C;</span>
+col_name<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>col_name<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">)</span><span class="token comment"># &#x5728; B &#x5217;&#x524D;&#x9762;&#x63D2;&#x5165;</span>
+df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>columns<span class="token operator">=</span>col_name<span class="token punctuation">)</span>
+
+col_name<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>col_name<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">)</span> <span class="token comment"># &#x5728; B &#x5217;&#x540E;&#x9762;&#x63D2;&#x5165;</span>
+df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>columns<span class="token operator">=</span>col_name<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6309;&#x884C;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+temp<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>like_list<span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>append<span class="token punctuation">(</span>temp<span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x5728;&#x67D0;&#x4E00;&#x884C;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x6682;&#x65F6;&#x4E0D;&#x8003;&#x8651;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x5728;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x540D;&#x79F0;&#x548C;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#x4F1A;&#x6539;&#x53D8;,&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;</span>
+<span class="token comment"># &#x5927;&#x591A;&#x6570;&#x601D;&#x60F3;&#x90FD;&#x662F;&#x62C6;&#x8868;&#x6DFB;&#x52A0;&#x518D;&#x5408;&#x5E76;</span>
+
+</pre><h3 class="mume-header" id="56-%E9%87%8D%E5%A4%8D%E5%80%BC%E5%A4%84%E7%90%86">5.6 &#x91CD;&#x590D;&#x503C;&#x5904;&#x7406;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+
+<span class="token comment">#  &#x4F1A;&#x5BF9;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x8BA1;&#x6570;&#xFF0C;&#x91CD;&#x590D;&#x8FD4;&#x56DE;True&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;False</span>
+df<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span>subset<span class="token punctuation">,</span>keep<span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6839;&#x636E;sunset&#x4E2D;&#x7684;&#x5217;&#x540D;&#x8FDB;&#x884C;&#x91CD;&#x590D;&#x503C;&#x53BB;&#x9664;</span>
+<span class="token comment"># &#x7F3A;&#x7701;subset&#x2014;&#x2014;&#x6839;&#x636E;&#x6240;&#x6709;&#x7684;&#x5217;&#x8FDB;&#x884C;&#x53BB;&#x91CD;</span>
+<span class="token comment"># &#x7F3A;&#x7701;keep&#x2014;&#x2014;&#x4FDD;&#x7559;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;   False&#x2014;&#x2014;&#x4E0D;&#x4FDD;&#x7559;&#x6240;&#x6709;&#x91CD;&#x590D;&#x503C;, last&#x2014;&#x2014;&#x4FDD;&#x7559;&#x6700;&#x540E;&#x4E00;&#x4E2A;, first&#x2014;&#x2014;&#x4FDD;&#x7559;&#x7B2C;&#x4E00;&#x4E2A;</span>
+df<span class="token punctuation">.</span>drop_duplicates<span class="token punctuation">(</span>subset<span class="token operator">=</span><span class="token punctuation">[</span>&#x5217;&#x540D;&#x79F0;<span class="token number">1</span><span class="token punctuation">,</span> &#x5217;&#x540D;&#x79F0;<span class="token number">2</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>keep<span class="token punctuation">)</span>
+</pre><h3 class="mume-header" id="57-%E6%8E%92%E5%BA%8F">5.7 &#x6392;&#x5E8F;</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+
+df<span class="token punctuation">.</span>sort_value<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axsi<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>na_position<span class="token operator">=</span><span class="token string">&apos;last&apos;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># &#x6839;&#x636E;&#x4F4E;&#xFF11;&#xFF0C;&#xFF12;&#xFF0C;column_name3&#x6392;&#x5E8F;&#xFF0C;</span>
+<span class="token comment"># &#x5206;&#x522B;&#x662F;&#x5347;&#x5E8F;&#xFF0C;&#x964D;&#x5E8F;&#xFF0C;&#x5347;&#x5E8F;,</span>
+<span class="token comment"># &#x5E76;&#x4E14;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x4E8E;&#x539F;&#x6765;&#x7684;&#x6570;&#x636E;&#x8868;</span>
+df<span class="token punctuation">.</span>sort_value<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>column_name3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">]</span><span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 </pre><h2 class="mume-header" id="6-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0">6&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;</h2>
 
 <pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/python3</span>
@@ -651,10 +747,12 @@ f<span class="token punctuation">.</span>insert<span class="token punctuation">(
 <h3 class="mume-header" id="71-fastq">7.1&#x3001; .fastq</h3>
 
 <p>&#x6BCF;&#x6761;reads&#x53EA;&#x5360;&#x7528;4&#x884C;</p>
-<p>&#x7B2C;&#x4E00;&#x884C;&#x5C31;&#x662F;sequence header<br>
+<p>&#x7B2C;&#x4E00;&#x884C;&#x5C31;&#x662F;Sequence Identity<br>
 &#x7B2C;&#x4E8C;&#x884C;&#x662F;&#x6D4B;&#x5E8F;&#x5F97;&#x5230;&#x7684;&#x78B1;&#x57FA;<br>
 &#x7B2C;&#x4E09;&#x884C;&#x662F;&#x5355;&#x72EC;&#x7684; <strong>+</strong><br>
 &#x7B2C;&#x56DB;&#x884C;&#x662F;&#x78B1;&#x57FA;&#x8D28;&#x91CF;</p>
+<p>Sequence Identity<br>
+@<instrument>:&lt;&gt;</instrument></p>
 <p><img src="./Images/File_type/Fastq.png" alt="Fastq"></p>
 <h3 class="mume-header" id="72-fasta">7.2&#x3001; .fasta</h3>
 

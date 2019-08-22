@@ -177,7 +177,7 @@ result.to_csv(output_file, sep="", header=True, index=True)
 # 选取f中第0列包含list_like中的数据的行
 df[df[0].isin(list_like)]
 
-# 选取f中第0列不包含list_)like中数据的行
+# 选取f中第0列不包含list_like中数据的行
 # ~  表示反选
 reault = df[~df[0].isin(list_like)]
 
@@ -274,12 +274,12 @@ df.drop_duplicates(subset=[列名称1, 列名称2 ],keep)
 ```python
 #!/usr/bin/python3
 
-df.sort_value(by=[], axsi=0, ascending=[],inplace=False,na_position='last')
+df.sort_values(by=[], axsi=0, ascending=[],inplace=False,na_position='last')
 
 # 根据低１，２，column_name3排序，
 # 分别是升序，降序，升序,
 # 并且直接作用于原来的数据表
-df.sort_value(by=[1,2,column_name3,...], ascending=[True,False,True], inplace=True)
+df.sort_values(by=[1,2,column_name3,...], ascending=[True,False,True], inplace=True)
 ```
 
 ## 6、匿名函数
@@ -339,6 +339,42 @@ Sequence Identity
 格式：
 &emsp;&emsp;省略
 
+
+### 7.3 GFF
+
+```shell
+##gff-version 3
+ctg123  .  exon  1300  1500  .  +  .  ID=exon00001
+ctg123  .  exon  1050  1500  .  +  .  ID=exon00002
+ctg123  .  exon  3000  3902  .  +  .  ID=exon00003
+ctg123  .  exon  5000  5500  .  +  .  ID=exon00004
+ctg123  .  exon  7000  9000  .  +  .  ID=exon00005
+```
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 
+| ------------------ | ----------------- | ------------ | ---------------- | -------------- | ----- | ------ | ----- | ---------- |
+
+reference sequence 
+annotation source 
+feature type 
+start coordinate 
+end coordinate 
+score 
+strand 
+frame 
+attributes 
+
+
+|名称|说明|
+|:-:|:-:|
+ reference sequence    |参照序列|指出注释的对象。如一个染色体，克隆或片段。可以有多个参照序列
+ annotation source   |注释来源|注释的来源。如果未知，则用点代替
+  feature type   |特征类型|属性的类型，一般有通用的标准
+ start coordinate    |起点|属性对应片段的起点。从1开始
+ end coordinate    |终点|属性对应片段的终点
+    |得分|针对一些量化的属性来表示程度得分
+ strand   |链|+表示正链，-表示负链，
+  frame   |.表示不指定步长|通常是编码蛋白质制定下一密码子开始位置。
+   attributes  |属性|一个包含众多属性的列表。格式为(tag=value),不同属性之间以分号相隔
 
 ## 8．Shell
 
