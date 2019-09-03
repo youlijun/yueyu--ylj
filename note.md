@@ -310,9 +310,46 @@ map( lambda x,y: True_value if condition else False_value, iterable_1,iterable_2
 
 ```
 
-## 7、 生物信息中常见的数据记录格式
+## 7、biopython
 
-### 7.1、 .fastq
+#### 7.1.1、访问NCBI Entrez数据路
+
+#### 7.1.2、Entrez获取数据库信息
+
+#### 7.1.3、ESearch：搜索Entrez数据库
+
+#### 7.1.4、Epost：上传identifiers列表
+
+#### 7.1.5、ESummary：通过主要的IDs获取摘要
+
+#### 7.1.6、EFetch：从Entrez下载更多记录
+
+#### 7.1.7、FLink：在NCBI Entrez中搜索相关的条目
+
+#### 7.1.8、EGQuery：全局搜索-统计搜索的条目
+
+#### 7.1.9、ESpell：获得拼写建议
+
+#### 7.1.10、解析大的Entrez XML文件
+
+#### 7.1.11、错误处理
+
+#### 7.1.12、专用解析器
+
+##### 7.1.13.1、解析Medline记录
+
+##### 7.1.13.2、解析GEO记录
+
+##### 7.1.13.3、解析UniGEne记录
+
+#### 7.1.14、使用代理
+
+#### 7.1.15、实例
+
+
+## 8、 生物信息中常见的数据记录格式
+
+### 8.1、 .fastq
 
 每条reads只占用4行
 
@@ -329,7 +366,7 @@ Sequence Identity
 格式如下：
 ![Fastq](./Images/File_type/Fastq.png)
 
-### 7.2、 .fasta
+### 8.2、 .fasta
 
 每条序列占两行
 
@@ -340,10 +377,13 @@ Sequence Identity
 &emsp;&emsp;省略
 
 
-## 8．Shell
+## 9．Shell
 
 ```shell
 # 递归复制多个目录的相同文件
 cp -r /share/data7/zhangy2/projects/2019-07-19/３.anno/*/*/*.sort.depth.log  ./
+qsub -cwd -l vf=20g,p=8 -q all.q -V  # 提交任务
+qhost -j # 查看节点状态
+
 ```
 
