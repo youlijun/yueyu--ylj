@@ -282,6 +282,31 @@ df.sort_values(by=[], axsi=0, ascending=[],inplace=False,na_position='last')
 df.sort_values(by=[1,2,column_name3,...], ascending=[True,False,True], inplace=True)
 ```
 
+### 5.8 计数
+
+```python
+# 统计
+df = df['colname'].value_counts()
+# 分组统计
+df = df.groupby('user_id')['song_id'].value_counts().to_frame('count').reset_index()
+```
+
+### 5.9 长—宽列表转换
+
+```python
+
+pd.melt(data,)
+df.pivot('features','user_contig','feature_count') # 长 ——> 宽
+```
+
+### 5.10 分割列
+
+```python
+expend=True # 返回一DataFrame
+expend=False # 返回列表
+df['colname'].str.split('pattern', expend=True [,n=..]) # 将表格中某一列以pattern分割n次，默认有多少分多少
+df['colname'].str.rsplti(...) # 反向分割，参数同上
+```
 ## 6、匿名函数
 
 
@@ -299,7 +324,7 @@ map( function, iterable )
 from functools import reduce
 reduce(lambda x,x+y, list_x [,初始值/list_like])
 
-# 过滤函数
+# 过滤函数,保留条件为True的元素
 filter ( lambda x: True if x==1 else False, list_like )
 
 # 结合后的例子
@@ -377,10 +402,9 @@ Sequence Identity
 &emsp;&emsp;省略
 
 
-<<<<<<< HEAD
-## 9．Shell
-=======
-### 7.3 GFF
+### 8.3 GFF
+
+跑基因注释
 
 ```shell
 ##gff-version 3
@@ -416,14 +440,65 @@ attributes
   frame   |.表示不指定步长|通常是编码蛋白质制定下一密码子开始位置。
    attributes  |属性|一个包含众多属性的列表。格式为(tag=value),不同属性之间以分号相隔
 
-## 8．Shell
->>>>>>> ded8efce6d91bb7b7695576a6b0dc9224f13a2b4
+## 9．Shell
 
 ```shell
 # 递归复制多个目录的相同文件
 cp -r /share/data7/zhangy2/projects/2019-07-19/３.anno/*/*/*.sort.depth.log  ./
 qsub -cwd -l vf=20g,p=8 -q all.q -V  # 提交任务
 qhost -j # 查看节点状态
+nohup ./program > program.log 2>&1 & # nohup重定向
 
 ```
 
+## 10. conda
+
+更改 __.condarc__ 可以设置conda的下载源
+```shell
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+
+## 11.Git
+
+```shell
+# 在自己的服务器上，创建一个空仓库
+git init --bare sample.git
+# 克隆非22端口服务器仓库
+git clone ssh://jiangminghao@git.data_analyse.cn:22220/home/jiangminghao/sourcecode/.git
+# 查看历史提交记录，短格式
+git reflog
+# 推送
+git push -u origin master
+# 拉取远程仓库
+git pull origin master 
+
+# 版本控制
+git revert <commit-hash> # 往后加一个版本，状态时所选版本
+
+git diff <hash1> <hash2> # 比较两个版本有什么差异
+
+# 撤销暂存区中，未提交的件
+git checkout -- <file-name> 
+
+
+```
+
+
+## 12. numpy
+
+```python
+import numpy as np
+# 分割一维列表
+np.array_split(data, num) # 将data分割成几分
+```
