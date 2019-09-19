@@ -307,6 +307,26 @@ expend=False # 返回列表
 df['colname'].str.split('pattern', expend=True [,n=..]) # 将表格中某一列以pattern分割n次，默认有多少分多少
 df['colname'].str.rsplti(...) # 反向分割，参数同上
 ```
+### 5.11 isin以及反向~isin
+```
+ser1 = pd.Series([1,2,3,4,5]) #创建两个索引格式
+ser2 = pd.Series([4,5,6,7,8])
+ser3 = ~ser1.isin(ser2) #返回ser1中不包括ser2中的元素
+ser1[ser3] #打印输出结果
+
+```
+### 5.12 循环merge
+```
+import pandas as pd
+import os
+files = os.listdir("ood")
+df1 = pd.read_csv("ood"+'/'+files[0],sep='\s+',header=None)
+for file in files[1:]:
+    df2 = pd.read_csv("ood" + '/' +file,header=None,sep='\t')
+    df1 = pd.merge(df1,df2,on=0)
+
+```
+
 ## 6、匿名函数
 
 
@@ -502,3 +522,17 @@ import numpy as np
 # 分割一维列表
 np.array_split(data, num) # 将data分割成几分
 ```
+
+## 13. perl
+```perl
+cat x1.txt | perl -pe 's/ \+/\t/g' > x2.txt #将空格替换成tab分割符
+```
+
+## 14.论文摘要怎么写？
+```心得
+（侯师兄论文）
+第一段.首先开头点出研究背景，和研究目的。 因此。。。。
+第二段.实验设计，研究内容：得出以下结论（1）（2）（3）
+关键字：。。。 。。。 。。。 。。。 。。。
+
+
